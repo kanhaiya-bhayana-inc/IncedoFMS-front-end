@@ -1,0 +1,13 @@
+.buttonBgColor{
+    background-color: #174A81;
+    color: white;
+}
+.buttonBgColor:hover{
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+.leftCont1{
+    /* width: 50%; */
+}

@@ -1,0 +1,22 @@
+.navbarMainSection {
+    background-color: #FFFFFF;
+    /* background-color: #174A81; */
+    /* background-color: #EF4815; */
+    /* padding: 10px; */
+}
+
+.textColor{
+    color: #7D6666;
+    font-weight: 500;
+    
+}
+.textColorLogo{
+    color: #EF4815;
+    font-weight:660;
+    font-size:large
+}
+.textColorLogo:hover{
+    color: #EF4815;
+    font-weight:660;
+    font-size:large
+}

@@ -1,0 +1,35 @@
+.tooltip {
+    position: relative;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    top: 50px;
+  
+    width: 350px;
+  }
+  .tooltip-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    
+  }
+
+  .filesList{
+    position: absolute;
+    top: 165px;
+    left: 1380px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid;
+    width: 415px;
+    z-index:1;
+    float: right;
+    text-align: justify;
+}
+
+#info{
+  margin-left: 110px;
+  
+  margin-top: -35px;
+}
