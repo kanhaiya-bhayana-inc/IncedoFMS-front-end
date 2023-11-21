@@ -8,7 +8,7 @@ export default function Main() {
   return (
     <>
     <Navbar />
-    <div className='text-center ' style={{backgroundColor:'#FFFFFF',minHeight:'70vh'}}>
+    <div className='text-center ' style={{backgroundColor:'#FFFFFF',minHeight:'87.6vh'}}>
     <Outlet />
     </div>
     <Footer />

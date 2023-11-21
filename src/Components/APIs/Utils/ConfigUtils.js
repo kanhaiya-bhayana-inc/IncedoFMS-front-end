@@ -1,6 +1,6 @@
 export async function getBlobConfiguration(){
     try{
-        const response = await fetch('https://localhost:7116/api/Data/GetBlobConfigInfo',{
+        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetBlobConfigInfo',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",

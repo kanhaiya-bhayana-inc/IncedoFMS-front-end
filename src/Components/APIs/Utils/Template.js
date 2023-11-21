@@ -1,6 +1,6 @@
 export async function downloadTemplateFile(request) {
     try {
-      const response = await fetch(`https://localhost:7116/api/file/DownloadFile?check=${request}`,{
+      const response = await fetch(`https://cloud-fms.azurewebsites.net/api/file/DownloadFile?check=${request}`,{
         method: 'GET',
         headers: {
             "Access-Control-Allow-Origin": "*",

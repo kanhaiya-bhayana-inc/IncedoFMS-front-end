@@ -14,7 +14,7 @@ export const NotFound = () => {
           We cannot find the page you are looking for!
           <br /> <br />
           The page you are looking for doesn't exist or an other error occured.
-          <br /> Go back, or head over to <a href='/' >incedoinc.com</a> to choose a new
+          <br /> Go back, or head over to <a href='/' style={{color:"#212529"}} ><b>cloudfms.com</b></a> to choose a new
           direction.
         </i>
       </p>

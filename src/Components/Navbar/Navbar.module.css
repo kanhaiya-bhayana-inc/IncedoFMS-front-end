@@ -7,16 +7,16 @@
 
 .textColor{
     color: #7D6666;
-    font-weight: 500;
+    font-weight: 520;
     
 }
 .textColorLogo{
-    color: #EF4815;
+    color: #174A81;
     font-weight:660;
     font-size:large
 }
-.textColorLogo:hover{
-    color: #EF4815;
+/* .textColorLogo:hover{
+    color: #174A81;
     font-weight:660;
     font-size:large
-}
+} */

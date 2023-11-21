@@ -1,6 +1,8 @@
 .mainSection{
-    background-color: rgba(0, 0, 0, 1);
-    min-height: 40vh;
+    /* background-color: rgba(0, 0, 0, 1); */
+    background-color: #174A81;
+    /* min-height: 40vh; */
+    color: white;
     /* margin-bottom: -50px; */
 }
 
@@ -11,6 +13,3 @@
     font-weight: 640;
 }
 
-.footerSection{
-    margin-bottom: -50px;
-}

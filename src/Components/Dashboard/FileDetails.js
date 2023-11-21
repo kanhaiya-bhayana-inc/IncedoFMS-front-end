@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './Dashboard.module.css'
+import styles from './FileDetails.module.css'
 import Form from './Form'
-export default function Dashboard() {
+export default function FileDetails() {
   return (
     <div className={styles.main}>
       <Form />
