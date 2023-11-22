@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styles from './Home.module.css';
 import HomeImg from '../../images/cloudIcon.png'
 
+
 export default function LoginForm() {
     const[userName,setUserName] = useState("");
     const[userPassword,setUserPassword] = useState("");
@@ -13,6 +14,7 @@ export default function LoginForm() {
         localStorage.setItem("username",userName);
         localStorage.setItem("userpassword",userPassword);
         window.location = "/dashboard";
+        
     }
     return (
         <div className='container p-5 w-25'>

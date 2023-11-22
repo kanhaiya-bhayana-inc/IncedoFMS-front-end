@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Main />}>
           <Route path='/' element={<Home />} />
-          <Route path='/fms' element={<FileDetails />} />
+          <Route path='/fms' element={(localStorage.getItem("username") && localStorage.getItem("userpassword")) ?<FileDetails /> : <LoginForm />} />
           <Route path='/test' element={<LoginForm />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/*' element={<NotFound />} />
