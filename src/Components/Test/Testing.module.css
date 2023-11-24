@@ -1,0 +1,27 @@
+.errorCell {
+    position: relative;
+  }
+  
+  .visibleContent {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100px; /* Adjust the max-width as needed */
+  }
+  
+  .fullContent {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+  
+  .errorCell:hover .fullContent {
+    display: block;
+  }
+  
