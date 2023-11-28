@@ -26,21 +26,21 @@ export default function Testing() {
   // Example items, to simulate fetching from another resources.
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   return (
-    <div className='container'>
+    <div className=''>
       {pipelinesDataList.length != 0 ?
-        <div className='p-3' id='mydiv'>
-          <table class="table table-bordered">
-            <thead>
+        <div className='mt-5' id='mydiv'>
+          <table class="table table-bordered w-100">
+            <thead style={{padding:"10px"}}>
               <tr>
-                <th scope="col">Pipeline name</th>
-                <th scope="col">Run start</th>
-                <th scope="col">Run end</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Status</th>
-                <th scope="col">Error</th>
-                <th scope="col">Parameters</th>
-                <th scope="col">Run Id</th>
-                <th scope="col">Action</th>
+                <th scope="">Pipeline name</th>
+                <th scope="">Run start</th>
+                <th scope="">Run end</th>
+                <th scope="">Duration(ms)</th>
+                <th scope="">Status</th>
+                <th scope="">Error</th>
+                <th scope="">Parameters</th>
+                <th scope="">Run Id</th>
+                <th scope="">Action</th>
 
               </tr>
             </thead>
@@ -48,15 +48,15 @@ export default function Testing() {
               {pipelinesDataList && pipelinesDataList.map((data, i) => (
                 <tr key={i}>
                   <td>{data.pipelineName}</td>
-                  <td>{data.runStart}</td>
-                  <td>{data.runEnd}</td>
+                  <td>{data.runStart.replace('T', ', T ').replace(/\..*$/, '')}</td>
+                  <td>{data.runEnd.replace('T', ', T ').replace(/\..*$/, '')}</td>
                   <td>{data.durationInMS}</td>
-                  <td>{data.status}</td>
-                  <td>{data.errorMessage != "" ?<div style={{color:"red"}} className={styles.errorCell}>
+                  <td style={{width:"130px",textAlign:"left"}}>{data.status == "Succeeded" ? <i style={{color:"green", fontSize:"20px"}} class="bi bi-check-circle-fill"></i> :<i style={{color:"red",fontSize:"20px"}} class="bi bi-x-circle-fill"></i>} {data.status}</td>
+                  <td>{data.errorMessage != "" ?<div style={{color:"red",textAlign:"left"}} className={styles.errorCell}>
                     <span className={styles.visibleContent}>{data.errorMessage.split(' ').slice(0, 4).join(' ')}</span>
                     <span className={styles.fullContent}>{data.errorMessage}</span>
                   </div>:"---"}</td>
-                  <td>TBD</td>
+                  <td><i style={{fontSize:"20px"}} class="bi bi-list"></i></td>
                   <td>{data.runID}</td>
                   <td><button style={{ border: "none", background: "none" }}><i class="bi bi-arrow-clockwise"></i></button></td>
                 </tr>

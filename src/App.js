@@ -10,6 +10,7 @@ import { NotFound } from './Components/NotFound/NotFound';
 import LoginForm from './Components/Home/LoginForm';
 import Layout from './Components/Layout';
 import PipelineViewTable from './Components/Home/PipelineViewTable';
+import Testing2 from './Components/Test/Testing2';
 
 
 function App() {
@@ -18,10 +19,11 @@ function App() {
         <Route path="/" exact element={<Main />}>
           <Route path='/' element={<Home />} />
           <Route path='/fms' element={(localStorage.getItem("username") && localStorage.getItem("userpassword")) ?<FileDetails /> : <LoginForm />} />
-          <Route path='/test' element={<LoginForm />} />
+          {/* <Route path='/test' element={<LoginForm />} /> */}
           <Route path='/login' element={<LoginForm />} />
           <Route path='/*' element={<NotFound />} />
           <Route path='/layout' element={<Layout />} />
+          <Route path='/testing' element={<Testing2 />} />
           <Route path='/dashboard' element={(localStorage.getItem("username") && localStorage.getItem("userpassword")) ?<PipelineViewTable /> : <LoginForm />} />
         </Route>
       </Routes>

@@ -1,7 +1,7 @@
 
 export async function fetchAllFileRecords(){
     try{
-        const response = await fetch('https://localhost:7116/api/Data/GetAllFilesDetails',{
+        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetAllFilesDetails',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
