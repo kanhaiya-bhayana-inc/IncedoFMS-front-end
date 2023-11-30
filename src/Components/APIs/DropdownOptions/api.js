@@ -3,7 +3,7 @@
 
 export async function fetchDelimiterOptions(){
     try{
-        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetDelimiters',{
+        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetDelimiters',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -19,7 +19,7 @@ export async function fetchDelimiterOptions(){
 }
 export async function fetchVendorOptions(){
     try{
-        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetVendorDetails',{
+        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetVendorDetails',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -35,7 +35,7 @@ export async function fetchVendorOptions(){
 }
 export async function fetchFiletypeOptions(){
     try{
-        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetFiletypeDetails',{
+        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetFiletypeDetails',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -51,7 +51,7 @@ export async function fetchFiletypeOptions(){
 }
 export async function fetchFiledateOptions(){
     try{
-        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetFiledateDetails',{
+        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetFiledateDetails',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",

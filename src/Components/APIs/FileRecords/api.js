@@ -1,7 +1,7 @@
 
 export async function fetchAllFileRecords(){
     try{
-        const response = await fetch('https://cloud-fms.azurewebsites.net/api/Data/GetAllFilesDetails',{
+        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetAllFilesDetails',{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -17,7 +17,7 @@ export async function fetchAllFileRecords(){
 }
 export async function insertFileRecord(formData){
     try{
-        const response = await fetch('https://cloud-fms.azurewebsites.net/api/file/UploadFile',{
+        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/file/UploadFile',{
             method: 'POST',
             headers: {
                 "Access-Control-Allow-Origin": "*",
