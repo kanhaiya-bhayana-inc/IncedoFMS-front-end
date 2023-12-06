@@ -1,6 +1,9 @@
+import { routes } from "../../../utility/Globals";
+
+
 export async function downloadTemplateFile(request) {
     try {
-      const response = await fetch(`https://cloud-fms1.azurewebsites.net/api/file/DownloadFile?check=${request}`,{
+      const response = await fetch(`${routes.downloadTemplateFile}?check=${request}`,{
         method: 'GET',
         headers: {
             "Access-Control-Allow-Origin": "*",

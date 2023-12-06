@@ -319,8 +319,8 @@ export default function Form() {
         <div>
             <span className={'p-4 ' + styles.blobAccountSpan}><label className={styles.labelDark2}>Backend details:</label> <button data-bs-toggle="tooltip" data-bs-placement="bottom" title="Azure Blob AccountName..." className={styles.blobAccountStyle} onClick={toggleDisplay}>
                 {isDisplayed ? <>
-                    <i class="bi bi-eye"></i>
-                </> : <><i class="bi bi-eye-slash"></i></>}
+                    <i className="bi bi-eye"></i>
+                </> : <><i className="bi bi-eye-slash"></i></>}
             </button>
                 {isDisplayed && <ul type='none'><li><label className={styles.labelDark2}>Blob:</label> {BlobAccountName}</li><li><label className={styles.labelDark2}>Db:</label> {ServerName}</li></ul>}
                

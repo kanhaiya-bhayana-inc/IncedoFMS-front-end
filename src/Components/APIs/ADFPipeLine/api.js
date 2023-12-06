@@ -1,6 +1,9 @@
+import { routes } from "../../../utility/Globals";
+
+
 export async function fetchADFPipelineData(){
     try{
-        const response = await fetch('https://cloud-adf.azurewebsites.net/api/Pipeline',{
+        const response = await fetch(routes.getADFPipelines,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
