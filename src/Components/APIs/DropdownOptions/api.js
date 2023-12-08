@@ -38,7 +38,7 @@ export async function fetchVendorOptions(){
 }
 export async function fetchFiletypeOptions(){
     try{
-        const response = await fetch(routes.fetchFiletypeOptions,{
+        const response = await fetch(routes.getFiletypeDetails,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -48,13 +48,13 @@ export async function fetchFiletypeOptions(){
         const data = await response.json();
         return data;
     } catch(error){
-        console.log('Error fetching vendor dropdown options:', error);
+        console.log('Error fetching fileType dropdown options:', error);
         return [];
     }
 }
 export async function fetchFiledateOptions(){
     try{
-        const response = await fetch(routes.fetchFiledateOptions,{
+        const response = await fetch(routes.getFiledateDetails,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -64,7 +64,7 @@ export async function fetchFiledateOptions(){
         const data = await response.json();
         return data;
     } catch(error){
-        console.log('Error fetching vendor dropdown options:', error);
+        console.log('Error fetching fileDate dropdown options:', error);
         return [];
     }
 }

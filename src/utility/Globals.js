@@ -18,7 +18,8 @@ const baseURLFileDetails = "https://cloud-fms1.azurewebsites.net";
 
 const midURL = "/";
 
-const getADFPipelines = baseURLAdfPipeline + midURL + "api/Pipeline";
+const getADFPipelines = baseURLAdfPipeline + midURL + "api/Pipeline/GetPipelineData";
+const reRunAdfPipeline = baseURLAdfPipeline + midURL + "api/Pipeline/RerunADFPipeline";
 
 
 const getDelimiter = baseURLFileDetails + midURL + "api/Data/GetDelimiters";
@@ -41,6 +42,7 @@ export const routes = {
     "getAllFilesDetails": getAllFilesDetails,
     "getBlobConfigInfo": getBlobConfigInfo,
     "uploadFileToAzure": uploadFileToAzure,
-    "downloadTemplateFile": downloadTemplateFile
+    "downloadTemplateFile": downloadTemplateFile,
+    "reRunAdfPipeline": reRunAdfPipeline
 }
 
