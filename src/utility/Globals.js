@@ -1,12 +1,12 @@
 // ####  Dev-env ####
 
-// const baseURLFileDetails = "https://localhost:7116";
+const baseURLFileDetails = "https://localhost:7116";
 const baseURLAdfPipeline = "https://localhost:7049";
 
 
 // #### Prod-env ####
 
-const baseURLFileDetails = "https://cloud-fms1.azurewebsites.net";
+// const baseURLFileDetails = "https://cloud-fms1.azurewebsites.net";
 // const baseURLAdfPipeline = "https://cloud-adf.azurewebsites.net";
 
 

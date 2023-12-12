@@ -32,7 +32,12 @@ export default function Testing() {
     const term = e.target.value;
     setStatusFilter(e.target.value);
   };
-
+  const handleRetryClick = () => {
+    // You can implement logic here to attempt to reconnect to the server
+    // For simplicity, we'll just set retryClicked to true in this example
+    setRetryClicked(true);
+    window.location.reload();
+  };
   const handleSearchFilter = ()=>{
     const parameter1 = searchTerm;
     const parameter2 = statusFilter;
@@ -226,7 +231,7 @@ export default function Testing() {
             {retryClicked && <p>Retrying...</p>}
 
             {!retryClicked && (
-              <button style={{ border: "none", background: "none", fontSize: "50px" }}><i className="bi bi-arrow-clockwise"></i></button>
+              <button style={{ border: "none", background: "none", fontSize: "50px" }} onClick={handleRetryClick}><i className="bi bi-arrow-clockwise"></i></button>
             )}
 
             <p>
