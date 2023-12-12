@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SweetPagination from "sweetpagination";
 import { fetchADFPipelineData, reRunAdfPipeline } from '../APIs/ADFPipeLine/api';
 import loadingBar from '../../images/microsoftLoadingBar.gif';
@@ -12,6 +12,7 @@ import { reRunAdFPipeline } from '../APIs/ADFPipeLine/api';
 
 
 export default function Testing() {
+  const useEffectHandle=useRef(false);
   const [currentPageData, setCurrentPageData] = useState(new Array(2).fill());
   const [api, contextHolder] = notification.useNotification();
   const [pipelinesDataList, setPipelinesDataList] = useState([]);
@@ -109,7 +110,12 @@ export default function Testing() {
     }
   };
   useEffect(() => {
-    fetchData();
+    if(useEffectHandle.current===false){
+      fetchData();  
+      return ()=>{
+        useEffectHandle.current=true;
+      }
+    }
   }, []);
 
 
