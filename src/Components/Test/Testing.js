@@ -76,7 +76,7 @@ export default function Testing() {
     const res = reRunAdFPipeline(pipelineName);
     res.then((data) => {
       console.log("res is, ",data.statusMessage);
-      if (data.statusMessage == "True") {
+      if (data.isSuccessStatusCode == "True" && data.statusCode == 200) {
           console.log("Hola");
             fetchData();
             openNotificationWithIcon('success', "Pipeline re-runed successfully", "The pipeline has been re-runed successfully.");
@@ -95,7 +95,7 @@ export default function Testing() {
       const data = await fetchADFPipelineData();
       setPipelinesDataList(data);
       setCurrentPageData(data)
-      console.log("data is", data);
+      console.log("data is 1", data);
       
       if (data.toString() == "TypeError: Failed to fetch") {
         setIsServerUp(false);
@@ -103,7 +103,6 @@ export default function Testing() {
       }else{
         setFilteredData(data.slice(0, itemsPerPage));
       }
-      console.log(" data is", data); // Log the data after setting the state
     } catch (error) {
       // console.error('Error setting pipeline data options:', error);
 
@@ -119,6 +118,10 @@ export default function Testing() {
   }, []);
 
 
+  const gotoPipelinePage = () =>{
+    openNotificationWithIcon('warning', 'Invalid action, or details not available,', 'Try later, or contant admin for further information...');
+  }
+
 
   // Example items, to simulate fetching from another resources.
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
@@ -130,7 +133,6 @@ export default function Testing() {
       {pipelinesDataList.length > 0 ?
         <div className='mt-5' id='mydiv'>
           <div className='row p-2'>
-
             
             <div className='col-2'>
               <input type="text"
@@ -214,7 +216,8 @@ export default function Testing() {
 
                   <td>{data.runID}</td>
                   <td><button onClick={() => rerunADFPipeline(data.pipelineName)} style={{ border: "none", background: "none", fontSize: "20px" }}><i className="bi bi-arrow-repeat"></i></button></td>
-                  <td><Link style={{ fontSize: "20px" }} to='/azurepipelinedetail' target='_blank'><i className="bi bi-arrow-right-circle"></i></Link></td>
+                  {/* <td><Link style={{ fontSize: "20px" }} to='/azurepipelinedetail' target='_blank'><i className="bi bi-arrow-right-circle"></i></Link></td> */}
+                  <td><Link style={{ fontSize: "20px" }} onClick={gotoPipelinePage}><i className="bi bi-arrow-right-circle"></i></Link></td>
                 </tr>
               ))}
 

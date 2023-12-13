@@ -29,9 +29,7 @@ export default function Navbar() {
                 <li className="nav-item">
                   <Link className={"nav-link " + styles.textColor} to="/fms">FileDetails</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className={"nav-link " + styles.textColor} to="/about">AboutUs</Link>
-                </li>
+                
               </> : ""
           }
 

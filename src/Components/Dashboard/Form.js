@@ -24,7 +24,7 @@ import {
     insertFileRecord
 } from '../APIs/FileRecords/api';
 
-import { mapData, vendorDataFilter } from '../../mapper/dataMapper';
+import { mapData, stringToBooleanMap, vendorDataFilter } from '../../mapper/dataMapper';
 import { validateEmail } from './formValidation';
 import EditInfoIcon from '../InfoIconTooltip/EditInfoIcon';
 import Box from '@mui/material/Box';
@@ -80,6 +80,7 @@ export default function Form() {
     // const [vendorName, setVendorName] = useState("");
     const [FixedLength, setFixedLength] = useState(false);
     const [isDialogOpen, setDialogOpen] = useState(false);
+    const [oldValue, setOldValue] = useState("");
 
     const [formData, setFormData] = useState(new FormData());
     let sourcepath = pathConfiguration.sourcepathprefix + `${formInputData.vendorName}/${formInputData.fileName}` + pathConfiguration.sourcepathsufix;
@@ -119,6 +120,7 @@ export default function Form() {
 
     // Setting all the properties of the file...
     const handleChangeTest = (event) => {
+        console.log("Will not call 2nd time");
         const { name, value } = event.target;
         setFormInputData((prevFormData) => ({
             ...prevFormData,
@@ -131,23 +133,36 @@ export default function Form() {
             //     setFormInputData(formInitialState);
             // }
         }
-        console.log("R1");
+        
+        // setOldValue(value);
+        if (oldValue == ""){
+            console.log("R1");
+        }
+        if (oldValue != ""){
+            console.log("R2", oldValue);
+        }
         if (name == "fileDate" && value != 4) {
-            console.log("R2");
+            console.log("TC-1");
+            if (formInputData.fileDate != ""){
+            }
+            /* console.log("R2");
             console.log(filedateData);
-            console.log("value is -> ", value);
+            console.log("value is -> ", value); */
             const flag = filedateData.some(item => item.id == value);
-            console.log("flag -> ", flag);
+            // console.log("flag -> ", flag);
             if (flag) {
                 console.log("Noicee");
+                setOpen(false);
+                setOldValue(value);
                 handleOpen();
             }
+            
         }
         if (name == "fileDate" && value == 4){
             formInputData.startPosition = "";
             formInputData.endPosition = "";
         }
-        console.log("DO value -> ", isDialogOpen);
+        // console.log("DO value -> ", isDialogOpen);
     };
 
     const handleDownlaodClick = async () => {
@@ -295,18 +310,25 @@ export default function Form() {
             console.log('Not');
             let id = selected.value;
             let row = records.find((item) => item.fileMasterId === id);
-            if (row.fixedLength === "false") {
-                row.fixedLength = false;
-            }
-            if (row.isActive === "false") {
-                row.isActive = false;
-            }
-            if (row.fixedLength === "true") {
-                row.fixedLength = true;
-            }
-            if (row.isActive === "true") {
-                row.isActive = true;
-            }
+            // if (row.fixedLength === "false") {
+            //     row.fixedLength = false;
+            // }
+            // if (row.isActive === "false") {
+            //     row.isActive = false;
+            // }
+            // if (row.fixedLength === "true") {
+            //     row.fixedLength = true;
+            // }
+            // if (row.isActive === "true") {
+            //     row.isActive = true;
+            // }
+            row.isActive = stringToBooleanMap[row.isActive];
+            row.fixedLength = stringToBooleanMap[row.fixedLength];
+            row.stage = stringToBooleanMap[row.stage];
+            row.curated = stringToBooleanMap[row.curated];
+            row.header = stringToBooleanMap[row.header];
+            // row.isActive=map[row.isActive]
+            // row.fixedLength = map[row.fixedLength]
             // reverse mapping of clientID --> Vendor Name
             var vID = vendorData.find(item => item.id == row.clientID);
             row.vendorName = vID.name;
@@ -359,7 +381,9 @@ export default function Form() {
     }
 
 
-
+    const displayBackendInfo = () =>{
+        openNotificationWithIcon('info',`Blob-account: ${BlobAccountName} \n ServerName: ${ServerName}`,`for more details contact admin...`);
+    }
 
     const fileNamesAndIds = mapData(records);
 
@@ -378,9 +402,9 @@ export default function Form() {
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                     <label htmlFor="exampleInputFileName"  className={"p-2" + " " + styles.labelDark}>StartPosition</label>
-                        <input type='text' className='form-control' onChange={startAndEndPositionHandle} name="startPosition" value={formInputData.startPosition} />
+                        <input type='number' className='form-control' onChange={startAndEndPositionHandle} name="startPosition" value={formInputData.startPosition} />
                     <label htmlFor="exampleInputFileName" className={"p-2" + " " + styles.labelDark}>EndPosition</label>
-                        <input type='text' className='form-control' value={formInputData.endPosition} onChange={startAndEndPositionHandle} name='endPosition' />
+                        <input type='number' className='form-control' value={formInputData.endPosition} onChange={startAndEndPositionHandle} name='endPosition' />
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         <button className={"btn" + " " + styles.buttonBgColor} onClick={handleClose}>Add</button>
@@ -389,7 +413,7 @@ export default function Form() {
             </Modal>
             <div>
 
-                <span className={'p-4 ' + styles.blobAccountSpan}><label className={styles.labelDark2}>Backend details:</label> <button data-bs-toggle="tooltip" data-bs-placement="bottom" title="Azure Blob AccountName..." className={styles.blobAccountStyle} onClick={toggleDisplay}>
+                <span className={'p-4 ' + styles.blobAccountSpan}><label className={styles.labelDark2}>Backend details:</label> <button data-bs-toggle="tooltip" data-bs-placement="bottom" title="Azure Blob AccountName..." className={styles.blobAccountStyle} onClick={displayBackendInfo}>
                     {isDisplayed ? <>
                         <i className="bi bi-eye"></i>
                     </> : <><i className="bi bi-eye-slash"></i></>}
@@ -590,7 +614,7 @@ export default function Form() {
                                     <div className='col-4 p-4'>
                                         <div className={"form-group" + " " + styles.colDisplay}>
                                             <label htmlFor="exampleInputEmail" className={"p-2" + " " + styles.labelDark}>Email</label>
-                                            <input onChange={handleChangeTest} value={formInputData.emailID} type="email" name='emailID' className="form-control" id="exampleInputEmail" placeholder="Enter email..." />
+                                            <input onChange={handleChangeTest} checked={formInputData.emailID} type="email" name='emailID' className="form-control" id="exampleInputEmail" placeholder="Enter email..." />
                                         </div>
 
                                     </div>
@@ -602,7 +626,7 @@ export default function Form() {
                                             <label className={"p-2 form-check-label" + " " + styles.labelDark} htmlFor="flexCheckDefault">
                                                 Stage
                                             </label>
-                                            <input onChange={handleCheckboxChangeTest} value={formInputData.stage} name="stage" className={styles.checkBox + " " + styles.checkboxiconStage} type="checkbox" />
+                                            <input onChange={handleCheckboxChangeTest} checked={formInputData.stage} name="stage" className={styles.checkBox + " " + styles.checkboxiconStage} type="checkbox" />
                                         </div>
 
                                     </div>
@@ -611,7 +635,7 @@ export default function Form() {
                                             <label className={"p-2 form-check-label" + " " + styles.labelDark} htmlFor="flexCheckDefault">
                                                 Curated
                                             </label>
-                                            <input onChange={handleCheckboxChangeTest} value={formInputData.curated} name="curated" className={styles.checkBox + " " + styles.checkboxiconCurated} type="checkbox" />
+                                            <input onChange={handleCheckboxChangeTest} checked={formInputData.curated} name="curated" className={styles.checkBox + " " + styles.checkboxiconCurated} type="checkbox" />
                                         </div>
                                     </div>
 
@@ -621,7 +645,7 @@ export default function Form() {
                                             <label className={"p-2 form-check-label" + " " + styles.labelDark} htmlFor="flexCheckDefault">
                                                 Header
                                             </label>
-                                            <input onChange={handleCheckboxChangeTest} value={formInputData.header} name="header" className={styles.checkBox + " " + styles.checkboxiconHeader} type="checkbox" />
+                                            <input onChange={handleCheckboxChangeTest} checked={formInputData.header} name="header" className={styles.checkBox + " " + styles.checkboxiconHeader} type="checkbox" />
                                         </div>
 
                                     </div>

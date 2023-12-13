@@ -12,7 +12,7 @@ export async function fetchAllFileRecords(){
         const data = await response.json();
         return data;
     } catch(error){
-        console.log('Error fetching vendor dropdown options:', error);
+        console.log('Error fetching file details:', error);
         return [];
     }
 }
