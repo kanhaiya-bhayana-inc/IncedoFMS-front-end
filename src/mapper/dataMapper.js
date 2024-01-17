@@ -13,3 +13,5 @@ export function vendorDataFilter(obj,id){
 }
 
 
+export let stringToBooleanMap={"false":false,"true":true}
+

@@ -1,6 +1,8 @@
+import { routes } from "../../../utility/Globals";
+
 export async function getBlobConfiguration(){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetBlobConfigInfo',{
+        const response = await fetch(routes.getBlobConfigInfo,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",

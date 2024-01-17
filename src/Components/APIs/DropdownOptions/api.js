@@ -1,9 +1,12 @@
 // import { openNotificationWithIcon } from "../../Notifications/NotificationAlerts";
 // import {notification} from'antd';
 
+import { routes } from "../../../utility/Globals";
+
+
 export async function fetchDelimiterOptions(){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetDelimiters',{
+        const response = await fetch(routes.getDelimiter,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -19,7 +22,7 @@ export async function fetchDelimiterOptions(){
 }
 export async function fetchVendorOptions(){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetVendorDetails',{
+        const response = await fetch(routes.getVendorDetails,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -35,7 +38,7 @@ export async function fetchVendorOptions(){
 }
 export async function fetchFiletypeOptions(){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetFiletypeDetails',{
+        const response = await fetch(routes.getFiletypeDetails,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -45,13 +48,13 @@ export async function fetchFiletypeOptions(){
         const data = await response.json();
         return data;
     } catch(error){
-        console.log('Error fetching vendor dropdown options:', error);
+        console.log('Error fetching fileType dropdown options:', error);
         return [];
     }
 }
 export async function fetchFiledateOptions(){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetFiledateDetails',{
+        const response = await fetch(routes.getFiledateDetails,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -61,7 +64,7 @@ export async function fetchFiledateOptions(){
         const data = await response.json();
         return data;
     } catch(error){
-        console.log('Error fetching vendor dropdown options:', error);
+        console.log('Error fetching fileDate dropdown options:', error);
         return [];
     }
 }

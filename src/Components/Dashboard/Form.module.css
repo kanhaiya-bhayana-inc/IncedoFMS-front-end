@@ -63,6 +63,15 @@
     margin-left: -65px;
 }
 
+.checkboxiconStage{
+    margin-left: -45px;
+}
+
+.checkboxiconCurated{
+    margin-left: -60px;
+}.checkboxiconHeader{
+    margin-left: -55px;
+}
 
 .selectFileInput{
     /* width: 350px; */
@@ -125,3 +134,4 @@
     float: left;
     width: 15%;
 }
+

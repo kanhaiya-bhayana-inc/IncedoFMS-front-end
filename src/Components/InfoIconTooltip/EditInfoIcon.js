@@ -9,7 +9,7 @@ export default function EditInfoIcon(props) {
         <div id='info' style={{"padding":"5px"}}
           onMouseEnter={() => setShow(true)}
           onMouseLeave={() => setShow(false)}
-        ><i class="bi bi-info-circle"></i>
+        ><i className="bi bi-info-circle"></i>
         </div>
 
       {show ? <div className='filesList'>

@@ -11,6 +11,7 @@ import LoginForm from './Components/Home/LoginForm';
 import Layout from './Components/Layout';
 import PipelineViewTable from './Components/Home/PipelineViewTable';
 import Testing2 from './Components/Test/Testing2';
+import AboutUs from './Components/AboutUs';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/*' element={<NotFound />} />
           <Route path='/layout' element={<Layout />} />
           <Route path='/testing' element={<Testing2 />} />
+          <Route path='/about' element={AboutUs} />
           <Route path='/dashboard' element={(localStorage.getItem("username") && localStorage.getItem("userpassword")) ?<PipelineViewTable /> : <LoginForm />} />
         </Route>
       </Routes>

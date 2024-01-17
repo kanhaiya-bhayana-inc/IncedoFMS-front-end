@@ -1,7 +1,8 @@
+import { routes } from "../../../utility/Globals";
 
 export async function fetchAllFileRecords(){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/Data/GetAllFilesDetails',{
+        const response = await fetch(routes.getAllFilesDetails,{
             method: 'GET',
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -11,13 +12,13 @@ export async function fetchAllFileRecords(){
         const data = await response.json();
         return data;
     } catch(error){
-        console.log('Error fetching vendor dropdown options:', error);
+        console.log('Error fetching file details:', error);
         return [];
     }
 }
 export async function insertFileRecord(formData){
     try{
-        const response = await fetch('https://cloud-fms1.azurewebsites.net/api/file/UploadFile',{
+        const response = await fetch(routes.uploadFileToAzure,{
             method: 'POST',
             headers: {
                 "Access-Control-Allow-Origin": "*",

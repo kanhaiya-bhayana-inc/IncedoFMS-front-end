@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Default styles for all screens */
+body {
+  font-size: 16px; /* Adjust the base font size as needed */
+}
+
+/* Responsive styles for screens smaller than 600 pixels */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  /* Add other styles specific to smaller screens */
+}
+
+/* Responsive styles for screens between 601 and 1024 pixels */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 18px; /* Adjust font size for medium-sized screens */
+  }
+  /* Add other styles specific to medium-sized screens */
+}
+
+/* Responsive styles for screens larger than 1024 pixels */
+@media screen and (min-width: 1025px) {
+  body {
+    font-size: 20px; /* Adjust font size for larger screens */
+  }
+  /* Add other styles specific to larger screens */
+}
