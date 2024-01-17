@@ -78,8 +78,11 @@ export default function Testing() {
       console.log("res is, ",data.statusMessage);
       if (data.isSuccessStatusCode == "True" && data.statusCode == 200) {
           console.log("Hola");
+          openNotificationWithIcon('success', "Pipeline re-runed successfully", "The pipeline has been re-runed successfully.");
+          setTimeout(()=>{
             fetchData();
-            openNotificationWithIcon('success', "Pipeline re-runed successfully", "The pipeline has been re-runed successfully.");
+            openNotificationWithIcon('info', "Feed updated successfully", "Your Feed has been updated successfully.");
+          },10000);
       }
       else {
         openNotificationWithIcon('error', 'Some error occured during re-run', 'Try later, or contact admin for more details.')
@@ -147,7 +150,7 @@ export default function Testing() {
             <div className='col-2'>
             <select className='form-control' value={statusFilter} onChange={handleStatusFilterChange}>
                   <option value="">Status</option>
-                  <option value="">All</option>
+                  <option value="e">All</option>
                   <option value="Succeeded">Succeeded</option>
                   <option value="Failed">Failed</option>
                 </select>
